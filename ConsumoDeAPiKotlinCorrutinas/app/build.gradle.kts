@@ -50,6 +50,13 @@ android {
 }
 
 dependencies {
+    //picasso for image
+    implementation(libs.picasso)
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
