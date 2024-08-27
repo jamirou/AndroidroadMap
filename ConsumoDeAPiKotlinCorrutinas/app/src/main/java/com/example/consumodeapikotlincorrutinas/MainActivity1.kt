@@ -2,6 +2,7 @@ package com.example.consumodeapikotlincorrutinas
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.consumodeapikotlincorrutinas.databinding.ActivityMain1Binding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,6 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity1 : AppCompatActivity() {
     private lateinit var binding: ActivityMain1Binding
+    private lateinit var adapter: DogAdapter
+    private val dogImages = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +23,8 @@ class MainActivity1 : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        TODO("Not yet implemented")
+        adapter = DogAdapter(dogImages)
+        binding.RvShowDogs.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getRetrofit(): Retrofit {
