@@ -1,6 +1,8 @@
 package com.example.consumodeapikotlincorrutinas
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.consumodeapikotlincorrutinas.databinding.ActivityMain1Binding
@@ -25,6 +27,7 @@ class MainActivity1 : AppCompatActivity() {
     private fun initRecyclerView() {
         adapter = DogAdapter(dogImages)
         binding.RvShowDogs.layoutManager = LinearLayoutManager(this)
+        binding.RvShowDogs.adapter = adapter
     }
 
     private fun getRetrofit(): Retrofit {
@@ -34,16 +37,26 @@ class MainActivity1 : AppCompatActivity() {
             .build()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun searchByName(query:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
             val dogs = call.body()
-            if (call.isSuccessful) {
-                //show recyclerview
-            } else {
-                //show error
+            runOnUiThread{
+                if (call.isSuccessful) {
+                    val images = dogs?.images ?: emptyList()
+                    dogImages.clear()
+                    dogImages.addAll(images)
+                    adapter.notifyDataSetChanged()
+                } else {
+                    showError()
+                }
             }
+
         }
     }
 
+    private fun showError() {
+        Toast.makeText(this, "Something happened", Toast.LENGTH_SHORT).show()
+    }
 }
