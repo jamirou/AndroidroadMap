@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.consumodeapikotlincorrutinas.databinding.ActivityMain1Binding
 import kotlinx.coroutines.CoroutineScope
@@ -11,8 +12,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Locale
 
-class MainActivity1 : AppCompatActivity() {
+class MainActivity1 : AppCompatActivity(), OnQueryTextListener {
     private lateinit var binding: ActivityMain1Binding
     private lateinit var adapter: DogAdapter
     private val dogImages = mutableListOf<String>()
@@ -21,6 +23,7 @@ class MainActivity1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMain1Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.saveDogsImage.setOnQueryTextListener(this)
         initRecyclerView()
     }
 
@@ -58,5 +61,16 @@ class MainActivity1 : AppCompatActivity() {
 
     private fun showError() {
         Toast.makeText(this, "Something happened", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (!query.isNullOrEmpty()) {
+            searchByName(query.lowercase(Locale.ROOT))
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        return true
     }
 }
