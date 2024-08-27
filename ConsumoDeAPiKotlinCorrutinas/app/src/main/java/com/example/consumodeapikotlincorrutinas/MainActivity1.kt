@@ -16,6 +16,11 @@ class MainActivity1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMain1Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        TODO("Not yet implemented")
     }
 
     private fun getRetrofit(): Retrofit {
