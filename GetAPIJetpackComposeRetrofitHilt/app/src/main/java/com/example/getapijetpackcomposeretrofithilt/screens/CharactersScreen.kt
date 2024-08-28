@@ -11,9 +11,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -56,6 +58,17 @@ fun CharacterCard(
                         model = result.image,
                         contentDescription = result.name,
                         contentScale = ContentScale.FillBounds
+                    )
+                }
+                Column(
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                        .align(Alignment.CenterVertically)
+                        .weight(1f)
+                ) {
+                    Text(
+                        text = result.name,
+                        style = MaterialTheme.typography.titleLarge
                     )
                 }
             }
