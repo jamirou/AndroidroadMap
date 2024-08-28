@@ -67,7 +67,7 @@ class MainActivity1 : AppCompatActivity(), OnQueryTextListener {
     }
 
     private fun showError() {
-        Toast.makeText(this, "Something happened", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Por favor introduce una raza correcta y en ingles", Toast.LENGTH_SHORT).show()
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
