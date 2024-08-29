@@ -6,12 +6,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 
-@Preview(showSystemUi = false)
+//@Preview(showSystemUi = false)
 @Composable
 fun ConstraintLayoutGuide() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
@@ -26,6 +27,36 @@ fun ConstraintLayoutGuide() {
             .constrainAs(boxRed) {
                 top.linkTo(topGuide)
                 end.linkTo(endGuide)
+            }
+        )
+    }
+}
+
+@Preview()
+@Composable
+fun ConstraintBarrier() {
+    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+        val (boxRed, boxGreen, boxYellow) = createRefs()
+        val barrier = createBottomBarrier(boxRed, boxYellow)
+        Box(modifier = Modifier
+            .size(125.dp)
+            .background(Color.Red)
+            .constrainAs(boxRed) {
+                top.linkTo(boxYellow.bottom)
+            }
+        )
+        Box(modifier = Modifier
+            .size(325.dp)
+            .background(Color.Green)
+            .constrainAs(boxGreen) {
+                top.linkTo(barrier)
+            }
+        )
+        Box(modifier = Modifier
+            .size(125.dp)
+            .background(Color.Yellow)
+            .constrainAs(boxYellow) {
+//                top.linkTo(boxGreen.bottom)
             }
         )
     }
