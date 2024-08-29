@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
@@ -19,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.exercisingjetpackcompose.ui.theme.ExercisingJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,44 +39,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-const val myText = "Inside Column"
-
-@Composable
-fun MyColumn() {
-    Row(
-        modifier = Modifier
-            .fillMaxSize(),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Column() {
-            Text(myText)
-            Text(myText)
-            Text(myText)
-        }
-        Column() {
-            Text(myText)
-            Text(myText)
-            Text(myText)
-        }
-    }
-}
-
-@Composable
-fun MyBox() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            MyColumn()
-            MyColumn()
-        }
-    }
-}
 
 @Composable
 fun ExerciseOne() {
@@ -103,6 +68,7 @@ fun ExerciseOne() {
                         .align(Alignment.Center)
                 )
             }
+            MySpacer(size = 60)
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -130,6 +96,10 @@ fun ExerciseOne() {
         }
     }
 
+}
+@Composable
+fun MySpacer(size: Int) {
+    Spacer(modifier = Modifier.width(size.dp))
 }
 
 @Preview(showBackground = true, showSystemUi = true)
