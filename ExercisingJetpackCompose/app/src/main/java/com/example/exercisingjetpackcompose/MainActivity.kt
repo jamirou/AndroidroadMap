@@ -11,12 +11,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,81 +40,35 @@ class MainActivity : ComponentActivity() {
         setContent {
             ExercisingJetpackComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ExerciseOne(
-                    )
+                    MyProgressAdvance()
                 }
             }
         }
     }
 }
 
+var progress = 0
 
+@Preview(showSystemUi = true)
 @Composable
-fun ExerciseOne() {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxSize()
-                .background(Color.Cyan)
-        ) {
-            Text(
-                text = "Ejemplo1",
-                modifier = Modifier
-                    .align(Alignment.Center)
-            )
-        }
-        Row(modifier = Modifier.weight(1f)) {
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxSize()
-                    .background(Color.Red)
-            ) {
-                Text(
-                    text = "Ejemplo 2",
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                )
+fun MyProgressAdvance() {
+    var progressStatus by rememberSaveable { mutableFloatStateOf(0f) }
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator(
+            progress = { progressStatus },
+        )
+        Row(Modifier.fillMaxWidth()) {
+            Button(onClick = { progressStatus += 0.1f }) {
+                Text(text = "Increase")
             }
-            MySpacer(size = 60)
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxSize()
-                    .background(Color.Green)
-            ) {
-                Text(
-                    text = "Ejemplo 3",
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                )
+            Button(onClick = { progressStatus -= 0.1f }) {
+                Text(text = "Decrease")
             }
         }
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxSize()
-                .background(Color.Magenta)
-        ) {
-            Text(
-                text = "Ejemplo4",
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-            )
-        }
-    }
-
-}
-@Composable
-fun MySpacer(size: Int) {
-    Spacer(modifier = Modifier.width(size.dp))
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun GreetingPreview() {
-    ExercisingJetpackComposeTheme {
-        ExerciseOne()
     }
 }
