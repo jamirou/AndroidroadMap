@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">XmlStudyNavigation</string>
     <string name="my_app_hub">My app Hub</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="say_hello">Say Hello</string>
+    <string name="hello_world_view">Hello World view</string>
 </resources>
