@@ -5,6 +5,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="40dp"
     tools:context=".ImcCalculatorActivity">
+
+    <!--    Card Male-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardMan"
+        style="@style/CustomCardStyle"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/CardWoman"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/male_icon"
+                android:src="@drawable/ic_male" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    Card Female-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardWoman"
+        style="@style/CustomCardStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CardMan"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:contentDescription="@string/female_icon"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_female" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

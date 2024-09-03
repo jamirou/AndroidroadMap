@@ -4,4 +4,8 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="say_hello">Say Hello</string>
     <string name="hello_world_view">Hello World view</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="male_icon">Male Icon</string>
+    <string name="female_icon">Female Icon</string>
 </resources>
