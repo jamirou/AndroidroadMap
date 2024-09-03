@@ -47,8 +47,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-var progress = 0
-
 @Preview(showSystemUi = true)
 @Composable
 fun MyProgressAdvance() {
