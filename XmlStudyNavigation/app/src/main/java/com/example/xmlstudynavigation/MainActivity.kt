@@ -20,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonHelloWorld = findViewById<AppCompatButton>(R.id.ButtonHelloWorld)
         buttonHelloWorld.setOnClickListener { navigateToHelloWorld() }
+        val buttonIMC = findViewById<AppCompatButton>(R.id.ButtonImcCalculator)
+        buttonIMC.setOnClickListener { navigateToIMC() }
+    }
+
+    private fun navigateToIMC() {
+        val intent = Intent(this, ImcCalculatorActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToHelloWorld() {
