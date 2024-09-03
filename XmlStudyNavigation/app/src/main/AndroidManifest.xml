@@ -15,6 +15,9 @@
         android:theme="@style/Theme.XmlStudyNavigation"
         tools:targetApi="31">
         <activity
+            android:name=".ImcCalculatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".HelloWorldActivity"
             android:exported="false" />
         <activity
