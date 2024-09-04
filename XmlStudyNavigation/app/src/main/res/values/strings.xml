@@ -18,9 +18,23 @@
     <string name="calculate">Calculate</string>
     <string name="result_IMC">Result</string>
     <string name="calculate_again">Calculate Again</string>
-    <string name="normal_weight">Normal Weight</string>
     <string name="imc_result_total">50.0</string>
     <string name="imc_description_final">Description</string>
+
+    <string name="low_weight">Underweight</string>
+    <string name="low_weight_description">Your body weight is below the normal range. Consider consulting with a healthcare provider.</string>
+
+    <string name="normal_weight">Normal Weight</string>
+    <string name="normal_weight_description">Your body weight is within the normal range. Keep up with your healthy habits!</string>
+
+    <string name="over_weight">Overweight</string>
+    <string name="over_weight_description">Your body weight is above the normal range. Consider adopting a healthier lifestyle.</string>
+
+    <string name="obesity">Obesity</string>
+    <string name="obesity_description">Your body weight is significantly above the normal range. It is advisable to seek advice from a healthcare provider.</string>
+
+    <string name="error_weight">Error</string>
+    <string name="error_weight_description">There was an issue calculating your BMI. Please try again.</string>
 
 
 </resources>
