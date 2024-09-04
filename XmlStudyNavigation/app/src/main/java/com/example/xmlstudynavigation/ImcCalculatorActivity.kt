@@ -8,15 +8,21 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 
 class ImcCalculatorActivity : AppCompatActivity() {
 
     private var selectedGender: Gender = Gender.MALE
+    private var currentWeight: Int = 70
+
     private lateinit var cardMale: CardView
     private lateinit var cardFemale: CardView
     private lateinit var tvHeight: TextView
     private lateinit var rsHeight: RangeSlider
+    private lateinit var btnSubtractWeight: FloatingActionButton
+    private lateinit var btnAddWeight: FloatingActionButton
+    private lateinit var tvWeight: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +41,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun initUI() {
         setGenderColor()
+        setWeight()
     }
 
     private fun initListeners() {
@@ -47,13 +54,28 @@ class ImcCalculatorActivity : AppCompatActivity() {
         rsHeight.addOnChangeListener { _, value, _ ->
             tvHeight.text = getString(R.string.height_format, value.toInt())
         }
+        btnAddWeight.setOnClickListener {
+            currentWeight += 1
+            setWeight()
+        }
+        btnSubtractWeight.setOnClickListener {
+            currentWeight -= 1
+            setWeight()
+        }
     }
+    private fun setWeight() {
+        tvWeight.text = currentWeight.toString()
+    }
+
 
     private fun initComponents() {
         cardMale = findViewById(R.id.CardMale)
         cardFemale = findViewById(R.id.CardFemale)
         tvHeight = findViewById(R.id.TvHeight)
         rsHeight = findViewById(R.id.RsHeight)
+        btnSubtractWeight = findViewById(R.id.BtnSubtractWeight)
+        btnAddWeight = findViewById(R.id.BtnAddWeight)
+        tvWeight = findViewById(R.id.TvWeight)
     }
 
     private fun changeGender(gender: Gender) {
