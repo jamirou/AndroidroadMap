@@ -1,5 +1,6 @@
 package com.example.xmlstudynavigation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -35,6 +36,9 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private lateinit var btnCalculator: AppCompatButton
 
+    companion object {
+        const val IMC_KEY = "IMC_RESULT"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,15 +88,22 @@ class ImcCalculatorActivity : AppCompatActivity() {
             setAge()
         }
         btnCalculator.setOnClickListener {
-            calculateImc()
+            val imcResult = calculateImc()
+            navigateToResult(imcResult)
         }
     }
 
-    private fun calculateImc() {
+    private fun navigateToResult(imcResult: String) {
+        val intent = Intent(this, ResultIMCActivity::class.java)
+        intent.putExtra(IMC_KEY, imcResult)
+        startActivity(intent)
+    }
+
+    private fun calculateImc():String {
         val heightInMeters = currentHeight / 100.0
         val imc = currentWeight / (heightInMeters * heightInMeters)
-        val imcFormatted = String.format("%.2f", imc)
-        Log.i("IMC", "El IMC es $imcFormatted")
+        return String.format("%.2f", imc)
+//        Log.i("IMC", "El IMC es $imcFormatted")
     }
 
     private fun setWeight() {
