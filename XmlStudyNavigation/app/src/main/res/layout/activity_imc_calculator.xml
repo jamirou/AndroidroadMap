@@ -79,8 +79,9 @@
 
         </androidx.cardview.widget.CardView>
 
-        <!--            RangeSlider-->
+        <!--   RangeSlider-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardRangeSlider"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -109,7 +110,7 @@
                     android:id="@+id/TvHeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="120cm"
+                    android:text="@string/_120cm"
                     android:textColor="@color/black"
                     android:textSize="40sp"
                     android:textStyle="bold" />
@@ -117,20 +118,91 @@
                 <com.google.android.material.slider.RangeSlider
                     android:id="@+id/RsHeight"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1"
                     android:valueFrom="120"
                     android:valueTo="200"
-                    app:trackColor="@color/black"
                     app:haloColor="@color/normal_color"
                     app:thumbColor="@color/black"
-                    android:layout_height="wrap_content"
-                    android:stepSize="1" />
+                    app:trackColor="@color/black" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         </androidx.cardview.widget.CardView>
 
-        
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardWeight"
+            style="@style/CustomCardStyle"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/CardAge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CardRangeSlider">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/TvWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_70"
+                    android:textColor="@color/black"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/BtnSubtractWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/black"
+                        android:src="@drawable/ic_subtract"
+                        app:tint="@color/white" />
+
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/BtnAddWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black"
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/white" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardAge"
+            style="@style/CustomCardStyle"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/CardWeight"
+            app:layout_constraintTop_toBottomOf="@+id/CardRangeSlider">
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
