@@ -6,72 +6,133 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="40dp"
+    android:orientation="vertical"
     tools:context=".ImcCalculatorActivity">
 
-    <!--    Card Male-->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardMale"
-        style="@style/CustomCardStyle"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/CardFemale"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="25dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+        <!--    Card Male-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardMale"
+            style="@style/CustomCardStyle"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/CardFemale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:contentDescription="@string/male_icon"
-                android:src="@drawable/ic_male" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/male_icon"
+                    android:src="@drawable/ic_male" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/male"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--    Card Female-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardFemale"
+            style="@style/CustomCardStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/CardMale"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/female_icon"
+                    android:src="@drawable/ic_female" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--            RangeSlider-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="@color/pressed_color"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CardMale">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/male"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/TvHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120cm"
+                    android:textColor="@color/black"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
 
-    <!--    Card Female-->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardFemale"
-        style="@style/CustomCardStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/CardMale"
-        app:layout_constraintTop_toTopOf="parent">
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/RsHeight"
+                    android:layout_width="match_parent"
+                    android:valueFrom="120"
+                    android:valueTo="200"
+                    app:trackColor="@color/black"
+                    app:haloColor="@color/normal_color"
+                    app:thumbColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <ImageView
-                android:layout_width="80dp"
-                android:contentDescription="@string/female_icon"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_female" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/female"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
