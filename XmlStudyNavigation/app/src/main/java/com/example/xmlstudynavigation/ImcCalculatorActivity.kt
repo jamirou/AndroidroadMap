@@ -15,14 +15,20 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private var selectedGender: Gender = Gender.MALE
     private var currentWeight: Int = 70
+    private var currentAge: Int = 20
 
     private lateinit var cardMale: CardView
     private lateinit var cardFemale: CardView
     private lateinit var tvHeight: TextView
     private lateinit var rsHeight: RangeSlider
+
     private lateinit var btnSubtractWeight: FloatingActionButton
     private lateinit var btnAddWeight: FloatingActionButton
     private lateinit var tvWeight: TextView
+
+    private lateinit var tvAge: TextView
+    private lateinit var btnAddAge: FloatingActionButton
+    private lateinit var btnSubtractAge: FloatingActionButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +48,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun initUI() {
         setGenderColor()
         setWeight()
+        setAge()
     }
 
     private fun initListeners() {
@@ -62,9 +69,21 @@ class ImcCalculatorActivity : AppCompatActivity() {
             currentWeight -= 1
             setWeight()
         }
+        btnAddAge.setOnClickListener {
+            currentAge += 1
+            setAge()
+        }
+        btnSubtractAge.setOnClickListener {
+            currentAge -= 1
+            setAge()
+        }
     }
     private fun setWeight() {
         tvWeight.text = currentWeight.toString()
+    }
+
+    private fun setAge() {
+        tvAge.text = currentAge.toString()
     }
 
 
@@ -73,9 +92,14 @@ class ImcCalculatorActivity : AppCompatActivity() {
         cardFemale = findViewById(R.id.CardFemale)
         tvHeight = findViewById(R.id.TvHeight)
         rsHeight = findViewById(R.id.RsHeight)
+
         btnSubtractWeight = findViewById(R.id.BtnSubtractWeight)
         btnAddWeight = findViewById(R.id.BtnAddWeight)
         tvWeight = findViewById(R.id.TvWeight)
+
+        tvAge = findViewById(R.id.TvAge)
+        btnAddAge = findViewById(R.id.BtnAddAge)
+        btnSubtractAge = findViewById(R.id.BtnSubtractAge)
     }
 
     private fun changeGender(gender: Gender) {
