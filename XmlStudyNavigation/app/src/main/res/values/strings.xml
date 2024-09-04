@@ -16,6 +16,11 @@
     <string name="age">age</string>
     <string name="age_number">20</string>
     <string name="calculate">Calculate</string>
+    <string name="result_IMC">Result</string>
+    <string name="calculate_again">Calculate Again</string>
+    <string name="normal_weight">Normal Weight</string>
+    <string name="imc_result_total">50.0</string>
+    <string name="imc_description_final">Description</string>
 
 
 </resources>
