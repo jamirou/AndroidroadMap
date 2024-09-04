@@ -13,6 +13,9 @@
     <string name="_120cm">120cm</string>
     <string name="weight">weight</string>
     <string name="_70">70</string>
+    <string name="age">age</string>
+    <string name="age_number">20</string>
+    <string name="calculate">Calculate</string>
 
 
 </resources>
