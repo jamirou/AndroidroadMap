@@ -10,6 +10,9 @@
     <string name="female_icon">Female Icon</string>
     <string name="height">height</string>
     <string name="height_format">%1$dcm</string>
+    <string name="_120cm">120cm</string>
+    <string name="weight">weight</string>
+    <string name="_70">70</string>
 
 
 </resources>
