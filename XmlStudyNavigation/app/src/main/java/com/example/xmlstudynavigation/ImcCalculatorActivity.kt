@@ -1,9 +1,11 @@
 package com.example.xmlstudynavigation
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -16,6 +18,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private var selectedGender: Gender = Gender.MALE
     private var currentWeight: Int = 70
     private var currentAge: Int = 20
+    private var currentHeight: Int = 120
 
     private lateinit var cardMale: CardView
     private lateinit var cardFemale: CardView
@@ -29,6 +32,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var tvAge: TextView
     private lateinit var btnAddAge: FloatingActionButton
     private lateinit var btnSubtractAge: FloatingActionButton
+
+    private lateinit var btnCalculator: AppCompatButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +64,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
             changeGender(Gender.FEMALE)
         }
         rsHeight.addOnChangeListener { _, value, _ ->
+            currentHeight = value.toInt()
             tvHeight.text = getString(R.string.height_format, value.toInt())
         }
         btnAddWeight.setOnClickListener {
@@ -77,7 +83,18 @@ class ImcCalculatorActivity : AppCompatActivity() {
             currentAge -= 1
             setAge()
         }
+        btnCalculator.setOnClickListener {
+            calculateImc()
+        }
     }
+
+    private fun calculateImc() {
+        val heightInMeters = currentHeight / 100.0
+        val imc = currentWeight / (heightInMeters * heightInMeters)
+        val imcFormatted = String.format("%.2f", imc)
+        Log.i("IMC", "El IMC es $imcFormatted")
+    }
+
     private fun setWeight() {
         tvWeight.text = currentWeight.toString()
     }
@@ -100,6 +117,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
         tvAge = findViewById(R.id.TvAge)
         btnAddAge = findViewById(R.id.BtnAddAge)
         btnSubtractAge = findViewById(R.id.BtnSubtractAge)
+
+        btnCalculator = findViewById(R.id.BtnCalculate)
     }
 
     private fun changeGender(gender: Gender) {
