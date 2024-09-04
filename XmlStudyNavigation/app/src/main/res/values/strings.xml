@@ -8,4 +8,8 @@
     <string name="female">Female</string>
     <string name="male_icon">Male Icon</string>
     <string name="female_icon">Female Icon</string>
+    <string name="height">height</string>
+    <string name="height_format">%1$dcm</string>
+
+
 </resources>
