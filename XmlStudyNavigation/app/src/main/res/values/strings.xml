@@ -40,6 +40,13 @@
     <string name="button_text_todo_app">ToDo APP</string>
     <string name="categories_title_text">Categories:</string>
     <string name="tasks_textview">Tasks:</string>
+    <string name="add_task_fav">Add task</string>
+    <string name="add_a_new_task_hint">Press to add a new task</string>
+    <string name="learning_radiobutton_text">Learning</string>
+    <string name="learning_radiobutton_exercise">Exercise</string>
+    <string name="learning_radiobutton_hobbies">Hobbies</string>
+    <string name="learning_radiobutton_other">other</string>
+    <string name="add_task_button_text">add task</string>
 
 
 </resources>
