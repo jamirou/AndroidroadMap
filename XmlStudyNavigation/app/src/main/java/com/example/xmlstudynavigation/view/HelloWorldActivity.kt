@@ -1,4 +1,4 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.view
 
 import android.os.Bundle
 import android.widget.EditText
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.xmlstudynavigation.R
 
 class HelloWorldActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

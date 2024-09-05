@@ -1,4 +1,4 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.model
 
 sealed class TaskCategory {
     object learning : TaskCategory()

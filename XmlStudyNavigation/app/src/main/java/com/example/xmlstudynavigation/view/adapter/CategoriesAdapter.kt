@@ -1,8 +1,10 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.xmlstudynavigation.R
+import com.example.xmlstudynavigation.model.TaskCategory
 
 class CategoriesAdapter(private val categories:List<TaskCategory>):RecyclerView.Adapter<CategoriesViewHolder>() {
 

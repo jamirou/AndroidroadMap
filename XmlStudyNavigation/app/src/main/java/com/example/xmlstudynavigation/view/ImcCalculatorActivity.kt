@@ -1,8 +1,7 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +10,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.xmlstudynavigation.Gender
+import com.example.xmlstudynavigation.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 

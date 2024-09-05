@@ -1,4 +1,4 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.view
 
 import android.os.Bundle
 import android.widget.TextView
@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.xmlstudynavigation.ImcCalculatorActivity.Companion.IMC_KEY
+import com.example.xmlstudynavigation.R
+import com.example.xmlstudynavigation.view.ImcCalculatorActivity.Companion.IMC_KEY
 
 class ResultIMCActivity : AppCompatActivity() {
 

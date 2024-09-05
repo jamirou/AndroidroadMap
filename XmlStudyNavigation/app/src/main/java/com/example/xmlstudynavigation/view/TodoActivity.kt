@@ -1,4 +1,4 @@
-package com.example.xmlstudynavigation
+package com.example.xmlstudynavigation.view
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.xmlstudynavigation.R
 
 class TodoActivity : AppCompatActivity() {
 
