@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginVertical="10dp"
     app:cardBackgroundColor="@color/normal_color"
     app:cardCornerRadius="16dp">
@@ -22,7 +23,7 @@
             android:id="@+id/TextViewTasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New task"
+            tool:text="New task"
             android:textColor="@color/black"
             android:textSize="20sp"/>
     </LinearLayout>

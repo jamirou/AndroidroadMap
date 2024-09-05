@@ -26,6 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:text="@string/categories_title_text"
             android:theme="@style/ToDoStyleTextView" />
 
@@ -37,6 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:text="@string/tasks_textview"
             android:theme="@style/ToDoStyleTextView" />
 
@@ -46,4 +48,16 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FAVTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="30dp"
+        android:contentDescription="@string/add_task_fav"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/fav_button_color"
+        app:fabSize="normal"
+        app:tint="@color/black" />
 </FrameLayout>
