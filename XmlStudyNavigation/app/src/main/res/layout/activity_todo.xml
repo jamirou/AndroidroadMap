@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="35dp"
     android:paddingVertical="40dp"
-    tools:context=".TodoActivity">
+    tools:context=".view.TodoActivity">
 
     <TextView
         android:layout_width="wrap_content"

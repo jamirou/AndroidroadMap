@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
-    tools:context=".ImcCalculatorActivity">
+    tools:context=".view.ImcCalculatorActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            app:cardBackgroundColor="@color/pressed_color"
+            app:cardBackgroundColor="@color/normal_color"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
                     android:stepSize="1"
                     android:valueFrom="120"
                     android:valueTo="200"
-                    app:haloColor="@color/normal_color"
+                    app:haloColor="@color/pressed_color"
                     app:thumbColor="@color/black"
                     app:trackColor="@color/black" />
 

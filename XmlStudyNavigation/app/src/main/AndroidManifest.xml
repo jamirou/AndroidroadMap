@@ -15,19 +15,19 @@
         android:theme="@style/Theme.XmlStudyNavigation"
         tools:targetApi="31">
         <activity
-            android:name=".TodoActivity"
+            android:name=".view.TodoActivity"
             android:exported="false" />
         <activity
-            android:name=".ResultIMCActivity"
+            android:name=".view.ResultIMCActivity"
             android:exported="false" />
         <activity
-            android:name=".ImcCalculatorActivity"
+            android:name=".view.ImcCalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".HelloWorldActivity"
+            android:name=".view.HelloWorldActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
