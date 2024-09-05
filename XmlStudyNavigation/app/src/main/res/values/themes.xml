@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.XmlStudyNavigation" parent="Base.Theme.XmlStudyNavigation" />
+
+    <style name="ToDoStyleTextView">
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/greenGray</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

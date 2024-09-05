@@ -39,6 +39,7 @@
     <string name="button_text_imc_calculator">IMC Calculator</string>
     <string name="button_text_todo_app">ToDo APP</string>
     <string name="categories_title_text">Categories:</string>
+    <string name="tasks_textview">Tasks:</string>
 
 
 </resources>
