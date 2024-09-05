@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">XmlStudyNavigation</string>
-    <string name="my_app_hub">My app Hub</string>
+    <string name="my_app_hub">My app Hub (XML)</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="say_hello">Say Hello</string>
     <string name="hello_world_view">Hello World view</string>
@@ -35,6 +35,9 @@
 
     <string name="error_weight">Error</string>
     <string name="error_weight_description">There was an issue calculating your BMI. Please try again.</string>
+    <string name="todo_make_your_tasks_done">ToDo make your tasks done</string>
+    <string name="button_text_imc_calculator">IMC Calculator</string>
+    <string name="button_text_todo_app">ToDo APP</string>
 
 
 </resources>
