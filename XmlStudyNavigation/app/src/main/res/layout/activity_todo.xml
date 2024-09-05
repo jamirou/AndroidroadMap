@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient"
+    android:layout_height="match_parent"
+    tools:context=".TodoActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/todo_make_your_tasks_done"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAllCaps="true"
+        android:layout_marginVertical="40dp"
+        android:layout_marginHorizontal="35dp"
+        android:textSize="40sp"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
