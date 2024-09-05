@@ -15,5 +15,4 @@ class TasksViewHolder(view: View): RecyclerView.ViewHolder(view) {
     fun render(task: Task) {
         textViewTasks.text = task.name
     }
-
 }
