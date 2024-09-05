@@ -1,36 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    android:orientation="vertical"
-    android:paddingHorizontal="35dp"
-    android:paddingVertical="40dp"
     tools:context=".view.TodoActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/todo_make_your_tasks_done"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/categories_title_text"
-        android:textAllCaps="true"
-        android:textColor="@color/greenGray"
-        android:textSize="20sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerViewCategories"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_make_your_tasks_done"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categories_title_text"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/greenGray"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</FrameLayout>
