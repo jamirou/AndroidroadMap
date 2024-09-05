@@ -12,5 +12,26 @@ class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun render(taskCategory: TaskCategory) {
 
+        when (taskCategory) {
+            TaskCategory.Exercise -> {
+                tvItemCategoryName.text = "Exercise"
+                viewDividerItemTasks.setBackgroundResource(R.color.exercise_divider_color)
+            }
+
+            TaskCategory.Hobbies -> {
+                tvItemCategoryName.text = "Hobbies"
+                viewDividerItemTasks.setBackgroundResource(R.color.hobbies_divider_color)
+            }
+
+            TaskCategory.Learning -> {
+                tvItemCategoryName.text = "Learning"
+                viewDividerItemTasks.setBackgroundResource(R.color.learning_divider_color)
+            }
+
+            TaskCategory.Other -> {
+                tvItemCategoryName.text = "Other"
+                viewDividerItemTasks.setBackgroundResource(R.color.other_divider_color)
+            }
+        }
     }
 }
