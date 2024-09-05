@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_gradient"
+    android:padding="6dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/EditTextTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:gravity="center_horizontal"
+        android:hint="@string/add_a_new_task_hint"
+        android:textColor="@color/black"
+        android:textColorHint="@color/greenGray"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroupTasks"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/RadioButtonLearning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/learning_radiobutton_text"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:buttonTint="@color/learning_divider_color" />
+
+        <RadioButton
+            android:id="@+id/RadioButtonExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/learning_radiobutton_exercise"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:buttonTint="@color/exercise_divider_color" />
+
+        <RadioButton
+            android:id="@+id/RadioButtonHobbies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/learning_radiobutton_hobbies"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:buttonTint="@color/hobbies_divider_color" />
+
+        <RadioButton
+            android:id="@+id/RadioButtonOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/learning_radiobutton_other"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            app:buttonTint="@color/other_divider_color" />
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonAddNewTaskDialog"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_menu_style"
+        android:padding="20dp"
+        android:text="@string/add_task_button_text"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+
+</LinearLayout>
