@@ -46,7 +46,19 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_menu_style"
             android:padding="20dp"
-            android:text="IMC Calculator"
+            android:text="@string/button_text_imc_calculator"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ButtonToDoApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_menu_style"
+            android:padding="20dp"
+            android:text="@string/button_text_todo_app"
             android:textColor="@color/black"
             android:textStyle="italic" />
 
