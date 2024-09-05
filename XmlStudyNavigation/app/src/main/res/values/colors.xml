@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="greenGray">#1E201E</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="pressed_color">#B5CFB7</color>
+    <color name="pressed_color">#A5BF9F</color>
     <color name="normal_color">#C1E0C3</color>
     <color name="border_color">#000000</color>
 </resources>

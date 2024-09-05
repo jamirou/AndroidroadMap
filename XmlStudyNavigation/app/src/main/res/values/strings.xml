@@ -35,9 +35,10 @@
 
     <string name="error_weight">Error</string>
     <string name="error_weight_description">There was an issue calculating your BMI. Please try again.</string>
-    <string name="todo_make_your_tasks_done">ToDo make your tasks done</string>
+    <string name="todo_make_your_tasks_done">ToDo make your dreams done</string>
     <string name="button_text_imc_calculator">IMC Calculator</string>
     <string name="button_text_todo_app">ToDo APP</string>
+    <string name="categories_title_text">Categories:</string>
 
 
 </resources>
