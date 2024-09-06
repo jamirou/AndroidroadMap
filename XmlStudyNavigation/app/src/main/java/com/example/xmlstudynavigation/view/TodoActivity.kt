@@ -101,7 +101,7 @@ class TodoActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerviewCategory.adapter = categoriesAdapter
 
-        tasksAdapter = TasksAdapter(tasks)
+        tasksAdapter = TasksAdapter(tasks) { position -> onItemSelected(position) }
         recyclerViewTasks.layoutManager = LinearLayoutManager(this)
         recyclerViewTasks.adapter = tasksAdapter
     }
@@ -110,6 +110,11 @@ class TodoActivity : AppCompatActivity() {
         recyclerviewCategory = findViewById(R.id.RecyclerViewCategories)
         recyclerViewTasks = findViewById(R.id.RecyclerViewTasks)
         fabAddTask = findViewById(R.id.FAVTasks)
+    }
+
+    private fun onItemSelected(position: Int) {
+        tasks[position].isSelected = !tasks[position].isSelected
+        updateTasks()
     }
 
     private fun updateTasks() {
