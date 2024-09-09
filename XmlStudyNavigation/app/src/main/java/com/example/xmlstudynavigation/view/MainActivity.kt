@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.xmlstudynavigation.R
+import com.example.xmlstudynavigation.superheroes.SuperHeroListActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         buttonIMC.setOnClickListener { navigateToIMC() }
         val buttonToDo = findViewById<AppCompatButton>(R.id.ButtonToDoApp)
         buttonToDo.setOnClickListener { navigateToToDo() }
+        val buttonSuperHero = findViewById<AppCompatButton>(R.id.ButtonSuperHero)
+        buttonSuperHero.setOnClickListener { navigateToSuperHero() }
+    }
+
+    private fun navigateToSuperHero() {
+        val intent = Intent(this, SuperHeroListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToIMC() {
