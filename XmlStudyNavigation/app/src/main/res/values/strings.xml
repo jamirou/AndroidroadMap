@@ -47,6 +47,7 @@
     <string name="learning_radiobutton_hobbies">Hobbies</string>
     <string name="learning_radiobutton_other">other</string>
     <string name="add_task_button_text">add task</string>
+    <string name="super_heroes_string_resource">super heroes</string>
 
 
 </resources>
