@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.xmlstudynavigation.R
 import com.example.xmlstudynavigation.databinding.ActivitySuperHeroListBinding
 import com.example.xmlstudynavigation.model.SuperHeroModel
@@ -21,6 +23,7 @@ class SuperHeroListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySuperHeroListBinding
     private lateinit var retrofit: Retrofit
+    private lateinit var adapter: SuperHeroAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,9 @@ class SuperHeroListActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?) = false
         })
+        adapter = SuperHeroAdapter()
+        binding.RecyclerViewSuperHeroList.layoutManager = LinearLayoutManager(this)
+        binding.RecyclerViewSuperHeroList.adapter = adapter
     }
 
     private fun getRetrofit(): Retrofit {
@@ -55,11 +61,17 @@ class SuperHeroListActivity : AppCompatActivity() {
     }
 
     private fun searchByName(query: String) {
+        binding.ProgressBarLoading.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
             val responseStatus: Response<SuperHeroModel> =
                 retrofit.create(ApiService::class.java).getSuperHeroes(query)
             if (responseStatus.isSuccessful) {
                 Log.i("ResponseStatus", "${responseStatus.body()}")
+                val response: SuperHeroModel? = responseStatus.body()
+                if (response != null) {
+                    Log.i("ResponseStatus", response.toString())
+                    runOnUiThread { binding.ProgressBarLoading.isVisible = false }
+                }
             } else {
                 Log.i("ResponseStatus", "Error")
             }
