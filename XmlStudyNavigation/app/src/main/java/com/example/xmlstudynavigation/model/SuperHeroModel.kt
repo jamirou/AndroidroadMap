@@ -10,15 +10,11 @@ data class SuperHeroModel(
 data class SuperHeroesData(
     @SerializedName("id") val superHeroId: String,
     @SerializedName("name") val superHeroName: String,
-//    @SerializedName("powerstats") val superHeroPowerStats: List<SuperHeroesStats>
+    @SerializedName("image") val superHeroImage: SuperHeroImageUrl
 )
 
-data class SuperHeroesStats(
-    @SerializedName("intelligence") val superHeroIntelligence: String,
-    @SerializedName("strength") val superHeroStrength: String,
-    @SerializedName("speed") val superHeroSpeed: String,
-    @SerializedName("durability") val superHeroDurability: String,
-    @SerializedName("power") val superHeroPower: String,
-    @SerializedName("combat") val superHeroCombat: String
+data class SuperHeroImageUrl(
+    @SerializedName("url") val superHeroImageUrl: String
 )
+
 
