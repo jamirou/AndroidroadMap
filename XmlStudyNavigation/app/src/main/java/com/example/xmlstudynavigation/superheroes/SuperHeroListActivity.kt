@@ -70,7 +70,10 @@ class SuperHeroListActivity : AppCompatActivity() {
                 val response: SuperHeroModel? = responseStatus.body()
                 if (response != null) {
                     Log.i("ResponseStatus", response.toString())
-                    runOnUiThread { binding.ProgressBarLoading.isVisible = false }
+                    runOnUiThread {
+                        adapter.updateSuperHeroList(response.superHeroes)
+                        binding.ProgressBarLoading.isVisible = false
+                    }
                 }
             } else {
                 Log.i("ResponseStatus", "Error")
