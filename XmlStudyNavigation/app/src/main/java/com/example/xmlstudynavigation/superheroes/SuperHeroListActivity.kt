@@ -1,5 +1,6 @@
 package com.example.xmlstudynavigation.superheroes
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.xmlstudynavigation.R
 import com.example.xmlstudynavigation.databinding.ActivitySuperHeroListBinding
 import com.example.xmlstudynavigation.model.SuperHeroModel
+import com.example.xmlstudynavigation.superheroes.SuperHeroDetailsActivity.Companion.HERO_ID
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,7 +51,7 @@ class SuperHeroListActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?) = false
         })
-        adapter = SuperHeroAdapter()
+        adapter = SuperHeroAdapter { navigateToSuperHeroDetail(it) }
         binding.RecyclerViewSuperHeroList.layoutManager = LinearLayoutManager(this)
         binding.RecyclerViewSuperHeroList.adapter = adapter
     }
@@ -79,6 +81,12 @@ class SuperHeroListActivity : AppCompatActivity() {
                 Log.i("ResponseStatus", "Error")
             }
         }
+    }
+
+    private fun navigateToSuperHeroDetail(id: String) {
+        val intent = Intent(this, SuperHeroDetailsActivity::class.java)
+        intent.putExtra(HERO_ID, id)
+        startActivity(intent)
     }
 
 }
