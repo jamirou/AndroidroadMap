@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    //Picasso
+    implementation(libs.picasso)
+
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
