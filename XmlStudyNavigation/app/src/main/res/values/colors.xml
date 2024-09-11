@@ -4,7 +4,7 @@
     <color name="greenGray">#1E201E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pressed_color">#A5BF9F</color>
-    <color name="pressed_color_transparent">#73A5BF9F</color>
+    <color name="pressed_color_transparent">#CCA5BF9F</color>
     <color name="normal_color">#C1E0C3</color>
     <color name="fav_button_color">#C1E0C3</color>
     <color name="border_color">#000000</color>
