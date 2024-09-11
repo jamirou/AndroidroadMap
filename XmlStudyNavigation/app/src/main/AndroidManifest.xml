@@ -15,6 +15,9 @@
         android:theme="@style/Theme.XmlStudyNavigation"
         tools:targetApi="31">
         <activity
+            android:name=".superheroes.SuperHeroDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".superheroes.SuperHeroListActivity"
             android:exported="false" />
         <activity
