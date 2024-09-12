@@ -28,9 +28,45 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/top_rounded_corners">
+            android:background="@drawable/top_rounded_corners" />
 
-        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- superHeroTitle -->
+            <TextView
+                android:id="@+id/TextViewSuperHeroName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="SuperHero Title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include layout="@layout/super_hero_stat_item" />
+
+                <include layout="@layout/super_hero_stat_item" />
+
+                <include layout="@layout/super_hero_stat_item" />
+
+                <include layout="@layout/super_hero_stat_item" />
+
+                <include layout="@layout/super_hero_stat_item" />
+
+                <include layout="@layout/super_hero_stat_item" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
