@@ -54,6 +54,7 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
     private fun createUI(superHero: SuperHeroItemResponse) {
         Picasso.get().load(superHero.superHeroImage.superHeroImageUrl)
             .into(binding.ImageViewSuperHeroImage)
+        binding.TextViewSuperHeroName.text = superHero.superHeroName
     }
 
     private fun getRetrofit(): Retrofit {
