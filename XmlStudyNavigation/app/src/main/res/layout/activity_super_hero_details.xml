@@ -49,20 +49,59 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="25dp"
+                android:gravity="bottom"
                 android:orientation="horizontal">
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewIntelligence"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewStrength"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewDurability"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewPower"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
 
-                <include layout="@layout/super_hero_stat_item" />
+                <View
+                    android:id="@+id/ViewCombat"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@color/black" />
+
 
             </LinearLayout>
 
