@@ -4,12 +4,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".superheroes.SuperHeroDetailsActivity">
 
     <ImageView
         android:id="@+id/ImageViewSuperHeroImage"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="290dp"
+        android:contentDescription="@string/superhero_image_image_view"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +20,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="@color/black"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +44,7 @@
                 android:id="@+id/TextViewSuperHeroName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="28sp"
@@ -50,6 +54,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="25dp"
                 android:gravity="bottom"
                 android:orientation="horizontal">
@@ -57,23 +62,23 @@
                 <View
                     android:id="@+id/ViewIntelligence"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@color/black" />
+                    android:background="@color/item_stat_intelligence_color" />
 
                 <View
                     android:id="@+id/ViewStrength"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@color/black" />
+                    android:background="@color/item_stat_strength_color" />
 
                 <View
                     android:id="@+id/ViewSpeed"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/black" />
@@ -81,26 +86,90 @@
                 <View
                     android:id="@+id/ViewDurability"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@color/black" />
+                    android:background="@color/item_stat_durability_color" />
 
                 <View
                     android:id="@+id/ViewPower"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@color/black" />
+                    android:background="@color/item_stat_power_color" />
 
                 <View
                     android:id="@+id/ViewCombat"
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@color/black" />
+                    android:background="@color/item_stat_combat_color" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Intelligence" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Strength" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Speed" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Durability" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Power" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Combat" />
 
 
             </LinearLayout>
