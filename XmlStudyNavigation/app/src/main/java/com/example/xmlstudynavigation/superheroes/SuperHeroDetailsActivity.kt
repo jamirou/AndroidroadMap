@@ -1,6 +1,8 @@
 package com.example.xmlstudynavigation.superheroes
 
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,12 +10,14 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.xmlstudynavigation.R
 import com.example.xmlstudynavigation.databinding.ActivitySuperHeroDetailsBinding
 import com.example.xmlstudynavigation.model.SuperHeroItemResponse
+import com.example.xmlstudynavigation.model.SuperHeroPowerStats
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.roundToInt
 
 class SuperHeroDetailsActivity : AppCompatActivity() {
 
@@ -55,6 +59,26 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
         Picasso.get().load(superHero.superHeroImage.superHeroImageUrl)
             .into(binding.ImageViewSuperHeroImage)
         binding.TextViewSuperHeroName.text = superHero.superHeroName
+        prepareStats(superHero.powerStats)
+    }
+
+    private fun prepareStats(powerStats: SuperHeroPowerStats) {
+        updateHeight(binding.ViewIntelligence, powerStats.intelligence)
+        updateHeight(binding.ViewStrength, powerStats.strength)
+        updateHeight(binding.ViewSpeed, powerStats.speed)
+        updateHeight(binding.ViewDurability, powerStats.durability)
+        updateHeight(binding.ViewPower, powerStats.power)
+        updateHeight(binding.ViewCombat, powerStats.combat)
+    }
+
+    private fun updateHeight(view: View, targetHeight: String) {
+        val params = view.layoutParams
+        params.height = pixelToDP(targetHeight.toFloat())
+        view.layoutParams = params
+    }
+
+    private fun pixelToDP(pixels: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pixels, resources.displayMetrics).roundToInt()
     }
 
     private fun getRetrofit(): Retrofit {
