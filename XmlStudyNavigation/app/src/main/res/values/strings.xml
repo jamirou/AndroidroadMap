@@ -48,6 +48,7 @@
     <string name="learning_radiobutton_other">other</string>
     <string name="add_task_button_text">add task</string>
     <string name="super_heroes_string_resource">super heroes</string>
+    <string name="superhero_image_image_view">SuperHero Image</string>
 
 
 </resources>
