@@ -60,6 +60,16 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
             .into(binding.ImageViewSuperHeroImage)
         binding.TextViewSuperHeroName.text = superHero.superHeroName
         prepareStats(superHero.powerStats)
+        binding.TextViewSuperHeroFullName.text = superHero.superHeroBiography.superHeroFullName
+        binding.TextViewSuperHeroPublisher.text = superHero.superHeroBiography.superHeroPublisher
+        binding.TextViewSuperHeroAlterEgo.text = superHero.superHeroBiography.superHeroAlterEgos
+        binding.TextViewSuperHeroFirstAppearance.text =
+            superHero.superHeroBiography.superHeroFirstAppearance
+        binding.TextViewSuperHeroAlignment.text = superHero.superHeroBiography.superHeroAlignment
+
+        val aliases = superHero.superHeroBiography.superHeroAliases.joinToString(", ")
+        binding.TextViewSuperHeroAliases.text = aliases
+
     }
 
     private fun prepareStats(powerStats: SuperHeroPowerStats) {
@@ -78,7 +88,11 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
     }
 
     private fun pixelToDP(pixels: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pixels, resources.displayMetrics).roundToInt()
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            pixels,
+            resources.displayMetrics
+        ).roundToInt()
     }
 
     private fun getRetrofit(): Retrofit {
