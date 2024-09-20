@@ -40,16 +40,37 @@
             android:orientation="vertical">
 
             <!-- superHeroTitle -->
+
             <TextView
                 android:id="@+id/TextViewSuperHeroName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 tools:text="SuperHero Title" />
+
+            <TextView
+                android:id="@+id/TextViewSuperHeroFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/greenGray"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="real name" />
+
+            <TextView
+                android:id="@+id/TextViewSuperHeroPublisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/greenGray"
+                android:textStyle="italic"
+                tools:text="publisher" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,7 +83,7 @@
                 <View
                     android:id="@+id/ViewIntelligence"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="20dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/item_stat_intelligence_color" />
@@ -70,7 +91,7 @@
                 <View
                     android:id="@+id/ViewStrength"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="90dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/item_stat_strength_color" />
@@ -78,7 +99,7 @@
                 <View
                     android:id="@+id/ViewSpeed"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="5dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/black" />
@@ -86,7 +107,7 @@
                 <View
                     android:id="@+id/ViewDurability"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="40dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/item_stat_durability_color" />
@@ -94,7 +115,7 @@
                 <View
                     android:id="@+id/ViewPower"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="60dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/item_stat_power_color" />
@@ -102,7 +123,7 @@
                 <View
                     android:id="@+id/ViewCombat"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="15dp"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
                     android:background="@color/item_stat_combat_color" />
@@ -171,6 +192,114 @@
                     android:singleLine="true"
                     android:text="Combat" />
 
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/alter_egos_label"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/TextViewSuperHeroAlterEgo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    tools:text="AlterEgos" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/first_appearance_label"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/TextViewSuperHeroFirstAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    tools:text="First appearance" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/alignment_label"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/TextViewSuperHeroAlignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    tools:text="Alignment" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/aliases_label"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/TextViewSuperHeroAliases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/greenGray"
+                    android:textSize="17sp"
+                    android:textStyle="bold|italic"
+                    tools:text="Aliases" />
 
             </LinearLayout>
 
