@@ -49,6 +49,10 @@
     <string name="add_task_button_text">add task</string>
     <string name="super_heroes_string_resource">super heroes</string>
     <string name="superhero_image_image_view">SuperHero Image</string>
+    <string name="alter_egos_label">alter egos:</string>
+    <string name="first_appearance_label">First appearance:</string>
+    <string name="alignment_label">Alignment:</string>
+    <string name="aliases_label">Aliases:</string>
 
 
 </resources>
