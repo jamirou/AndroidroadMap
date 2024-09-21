@@ -59,6 +59,8 @@
     <string name="durability_label_stat">Durability</string>
     <string name="power_label_stat">Power</string>
     <string name="combat_label_stat">Combat</string>
+    <string name="relatives_label">Relatives:</string>
+    <string name="group_affiliation_label">Affiliations:</string>
 
 
 </resources>
