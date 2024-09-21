@@ -3,17 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/normal_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/normal_color"
     tools:context=".superheroes.SuperHeroListActivity">
 
     <ProgressBar
         android:id="@+id/ProgressBarLoading"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminate="true"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SuperHero List"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,13 +35,13 @@
         android:id="@+id/SearchViewSearchHero"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/pressed_color"
         android:queryHint="Search your hero"
+        android:textColor="@color/white"
         app:iconifiedByDefault="false"
-        android:textColor="@color/black"
+        android:layout_marginTop="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/TextViewTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewSuperHeroList"
