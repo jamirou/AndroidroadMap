@@ -6,7 +6,8 @@ data class SuperHeroItemResponse(
     @SerializedName("name") val superHeroName: String,
     @SerializedName("powerstats") val powerStats: SuperHeroPowerStats,
     @SerializedName("image") val superHeroImage: SuperHeroImageDetailResponse,
-    @SerializedName("biography") val superHeroBiography: SuperHeroBiography
+    @SerializedName("biography") val superHeroBiography: SuperHeroBiography,
+    @SerializedName("connections") val superHeroConnections: SuperHeroConnections
 )
 
 data class SuperHeroPowerStats(
@@ -29,4 +30,9 @@ data class SuperHeroBiography(
     @SerializedName("first-appearance") val superHeroFirstAppearance: String,
     @SerializedName("publisher") val superHeroPublisher: String,
     @SerializedName("alignment") val superHeroAlignment: String
+)
+
+data class SuperHeroConnections(
+    @SerializedName("group-affiliation") val superHeroGroupAffiliation: String,
+    @SerializedName("relatives") val superHeroRelatives: String
 )
