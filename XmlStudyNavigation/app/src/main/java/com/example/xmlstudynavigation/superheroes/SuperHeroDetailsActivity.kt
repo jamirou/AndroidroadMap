@@ -78,6 +78,10 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
         //Super hero Aliases
         val aliases = superHero.superHeroBiography.superHeroAliases.joinToString(", ")
         binding.TextViewSuperHeroAliases.text = aliases
+        //Super hero connections
+        binding.TextViewSuperHeroGroupAffiliation.text =
+            superHero.superHeroConnections.superHeroGroupAffiliation
+        binding.TextViewSuperHeroRelatives.text = superHero.superHeroConnections.superHeroRelatives
 
     }
 
