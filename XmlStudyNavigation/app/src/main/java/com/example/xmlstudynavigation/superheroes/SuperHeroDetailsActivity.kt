@@ -3,6 +3,7 @@ package com.example.xmlstudynavigation.superheroes
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -56,35 +57,70 @@ class SuperHeroDetailsActivity : AppCompatActivity() {
     }
 
     private fun createUI(superHero: SuperHeroItemResponse) {
+        //Super Hero Image
         Picasso.get().load(superHero.superHeroImage.superHeroImageUrl)
             .into(binding.ImageViewSuperHeroImage)
+        // Super Hero Name
         binding.TextViewSuperHeroName.text = superHero.superHeroName
+        // Super Hero Stats
         prepareStats(superHero.powerStats)
+        //Super Hero Biography
         binding.TextViewSuperHeroFullName.text = superHero.superHeroBiography.superHeroFullName
+        //Super hero Publisher
         binding.TextViewSuperHeroPublisher.text = superHero.superHeroBiography.superHeroPublisher
+        //Super hero AlterEgo
         binding.TextViewSuperHeroAlterEgo.text = superHero.superHeroBiography.superHeroAlterEgos
+        //Super hero First Appearance
         binding.TextViewSuperHeroFirstAppearance.text =
             superHero.superHeroBiography.superHeroFirstAppearance
+        //Super hero Alignment
         binding.TextViewSuperHeroAlignment.text = superHero.superHeroBiography.superHeroAlignment
-
+        //Super hero Aliases
         val aliases = superHero.superHeroBiography.superHeroAliases.joinToString(", ")
         binding.TextViewSuperHeroAliases.text = aliases
 
     }
 
     private fun prepareStats(powerStats: SuperHeroPowerStats) {
-        updateHeight(binding.ViewIntelligence, powerStats.intelligence)
-        updateHeight(binding.ViewStrength, powerStats.strength)
-        updateHeight(binding.ViewSpeed, powerStats.speed)
-        updateHeight(binding.ViewDurability, powerStats.durability)
-        updateHeight(binding.ViewPower, powerStats.power)
-        updateHeight(binding.ViewCombat, powerStats.combat)
+        updateStat(
+            binding.ViewIntelligence,
+            binding.TextViewIntelligenceStat,
+            powerStats.intelligence
+        )
+        updateStat(
+            binding.ViewStrength,
+            binding.TextViewStrengthStat,
+            powerStats.strength
+        )
+        updateStat(
+            binding.ViewSpeed,
+            binding.TextViewSpeedStat,
+            powerStats.speed
+        )
+        updateStat(
+            binding.ViewDurability,
+            binding.TextViewDurabilityStat,
+            powerStats.durability
+        )
+        updateStat(
+            binding.ViewPower,
+            binding.TextViewPowerStat,
+            powerStats.power
+        )
+        updateStat(
+            binding.ViewCombat,
+            binding.TextViewCombatStat,
+            powerStats.combat
+        )
     }
 
-    private fun updateHeight(view: View, targetHeight: String) {
+    private fun updateStat(view: View, textView: TextView, statValue: String) {
+        /*Update the height of the view based on the stat value*/
         val params = view.layoutParams
-        params.height = pixelToDP(targetHeight.toFloat())
+        params.height = pixelToDP(statValue.toFloatOrNull() ?: "0".toFloat())
         view.layoutParams = params
+        /*Show value in text view*/
+        textView.text = statValue
     }
 
     private fun pixelToDP(pixels: Float): Int {
