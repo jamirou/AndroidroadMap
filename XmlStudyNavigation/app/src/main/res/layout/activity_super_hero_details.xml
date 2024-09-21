@@ -51,7 +51,7 @@
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                tools:text="SuperHero Title" />
+                tools:text="Yoko Ono" />
 
             <TextView
                 android:id="@+id/TextViewSuperHeroFullName"
@@ -61,7 +61,7 @@
                 android:textColor="@color/greenGray"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                tools:text="real name" />
+                tools:text="Edgar allan poe" />
 
             <TextView
                 android:id="@+id/TextViewSuperHeroPublisher"
@@ -70,63 +70,156 @@
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/greenGray"
                 android:textStyle="italic"
-                tools:text="publisher" />
+                tools:text="1802" />
 
+            <!--Super Hero Stats-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="25dp"
                 android:gravity="bottom"
                 android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/ViewIntelligence"
+                <!-- Intelligence -->
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="20dp"
-                    android:layout_marginHorizontal="4dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/item_stat_intelligence_color" />
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
 
-                <View
-                    android:id="@+id/ViewStrength"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/item_stat_strength_color" />
+                    <TextView
+                        android:id="@+id/TextViewIntelligenceStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
 
-                <View
-                    android:id="@+id/ViewSpeed"
-                    android:layout_width="0dp"
-                    android:layout_height="5dp"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/black" />
+                    <View
+                        android:id="@+id/ViewIntelligence"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/item_stat_intelligence_color" />
+                </LinearLayout>
 
-                <View
-                    android:id="@+id/ViewDurability"
+                <!-- Strength -->
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginHorizontal="4dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/item_stat_durability_color" />
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
 
-                <View
-                    android:id="@+id/ViewPower"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/item_stat_power_color" />
+                    <TextView
+                        android:id="@+id/TextViewStrengthStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
 
-                <View
-                    android:id="@+id/ViewCombat"
+                    <View
+                        android:id="@+id/ViewStrength"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="@color/item_stat_strength_color" />
+                </LinearLayout>
+
+                <!-- Speed -->
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="15dp"
-                    android:layout_marginHorizontal="4dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/item_stat_combat_color" />
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextViewSpeedStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+                    <View
+                        android:id="@+id/ViewSpeed"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/hobbies_divider_color" />
+
+                </LinearLayout>
+
+                <!-- Durability -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextViewDurabilityStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+                    <View
+                        android:id="@+id/ViewDurability"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/item_stat_durability_color" />
+                </LinearLayout>
+
+
+                <!-- Power -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextViewPowerStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+                    <View
+                        android:id="@+id/ViewPower"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/item_stat_power_color" />
+                </LinearLayout>
+
+                <!-- Power -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TextViewCombatStat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black" />
+
+                    <View
+                        android:id="@+id/ViewCombat"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:background="@color/item_stat_combat_color" />
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -145,7 +238,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Intelligence" />
+                    android:text="@string/intelligence_label_stat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -154,7 +247,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Strength" />
+                    android:text="@string/strength_label_stat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -163,7 +256,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Speed" />
+                    android:text="@string/speed_label_stat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -172,7 +265,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Durability" />
+                    android:text="@string/durability_label_stat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -181,7 +274,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Power" />
+                    android:text="@string/power_label_stat" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -190,7 +283,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Combat" />
+                    android:text="@string/combat_label_stat" />
 
 
             </LinearLayout>
@@ -218,7 +311,7 @@
                     android:textColor="@color/greenGray"
                     android:textSize="17sp"
                     android:textStyle="bold|italic"
-                    tools:text="AlterEgos" />
+                    tools:text="Being super" />
 
             </LinearLayout>
 
@@ -245,7 +338,7 @@
                     android:textColor="@color/greenGray"
                     android:textSize="17sp"
                     android:textStyle="bold|italic"
-                    tools:text="First appearance" />
+                    tools:text="commic sand" />
 
             </LinearLayout>
 
@@ -272,7 +365,7 @@
                     android:textColor="@color/greenGray"
                     android:textSize="17sp"
                     android:textStyle="bold|italic"
-                    tools:text="Alignment" />
+                    tools:text="Super Bad billionaire hero" />
 
             </LinearLayout>
 
@@ -299,7 +392,7 @@
                     android:textColor="@color/greenGray"
                     android:textSize="17sp"
                     android:textStyle="bold|italic"
-                    tools:text="Aliases" />
+                    tools:text="The gold mantra" />
 
             </LinearLayout>
 
