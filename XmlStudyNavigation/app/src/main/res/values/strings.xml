@@ -53,6 +53,12 @@
     <string name="first_appearance_label">First appearance:</string>
     <string name="alignment_label">Alignment:</string>
     <string name="aliases_label">Aliases:</string>
+    <string name="intelligence_label_stat">Intelligence</string>
+    <string name="strength_label_stat">Strength</string>
+    <string name="speed_label_stat">Speed</string>
+    <string name="durability_label_stat">Durability</string>
+    <string name="power_label_stat">Power</string>
+    <string name="combat_label_stat">Combat</string>
 
 
 </resources>
