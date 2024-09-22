@@ -61,6 +61,7 @@
     <string name="combat_label_stat">Combat</string>
     <string name="relatives_label">Relatives:</string>
     <string name="group_affiliation_label">Affiliations:</string>
+    <string name="settings_button_text">Settings</string>
 
 
 </resources>
