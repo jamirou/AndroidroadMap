@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pressed_color"
+    android:background="@color/normal_color"
     tools:context=".superheroes.SuperHeroDetailsActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -29,8 +29,8 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+            android:backgroundTint="@color/normal_color"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/pressed_color"
             android:elevation="8dp">
 
             <FrameLayout
