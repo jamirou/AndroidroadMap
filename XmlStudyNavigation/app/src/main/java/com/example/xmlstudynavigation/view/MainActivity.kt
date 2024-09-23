@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         buttonToDo.setOnClickListener { navigateToToDo() }
         val buttonSuperHero = findViewById<AppCompatButton>(R.id.ButtonSuperHero)
         buttonSuperHero.setOnClickListener { navigateToSuperHero() }
+
         val buttonSettings = findViewById<AppCompatButton>(R.id.ButtonSettings)
         buttonSettings.setOnClickListener { navigateToSettings() }
     }
