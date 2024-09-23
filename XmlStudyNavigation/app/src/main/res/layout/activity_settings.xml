@@ -4,8 +4,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical">
 
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp" />
     <!--Dark Mode Item-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +55,11 @@
             android:layout_gravity="center_vertical" />
 
     </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp" />
 
     <!--Bluetooth Item-->
     <LinearLayout
@@ -97,7 +107,7 @@
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginVertical="5dp" />
 
     <LinearLayout
@@ -133,13 +143,22 @@
 
             <!-- Switch -->
             <com.google.android.material.slider.RangeSlider
+                android:id="@+id/RangeSliderVolume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/volume_slider_text" />
+                android:contentDescription="@string/volume_slider_text"
+                android:stepSize="1"
+                android:valueFrom="0"
+                android:valueTo="100" />
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp" />
 
     <!--Vibration mode Item-->
     <LinearLayout
@@ -186,8 +205,8 @@
     </LinearLayout>
 
     <com.google.android.material.divider.MaterialDivider
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginVertical="3dp" />
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp" />
 
 </LinearLayout>
