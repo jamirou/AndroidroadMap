@@ -3,5 +3,8 @@
     <style name="Base.Theme.XmlStudyNavigation" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+            <item name="colorPrimary">@color/background_dark</item>
+            <item name="android:textColorPrimary">@color/white</item>
+            <item name="android:background">@color/black</item>
     </style>
 </resources>
