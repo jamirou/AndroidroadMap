@@ -61,6 +61,16 @@
     <string name="combat_label_stat">Combat</string>
     <string name="relatives_label">Relatives:</string>
     <string name="group_affiliation_label">Affiliations:</string>
+    <string name="settings_button_text">Settings</string>
+    <string name="dark_mode_text">Dark mode</string>
+    <string name="bluetooth_text">Notifications</string>
+    <string name="vibration_text">Vibration mode</string>
+    <string name="dark_mode_description_text">Dark mode should make it easier for your eyes to adjust from your dimly lit surroundings to your phone screen, reducing screen glare</string>
+    <string name="bluetooth_description_text">Activate | deactivate bluetooth</string>
+    <string name="vibration_description_text">Activate | deactivate Vibration</string>
+    <string name="volume_text">Volume</string>
+    <string name="volume_slider_text">Volume slider</string>
+    <string name="increase_or_decrease_volume_text">increase or decrease volume</string>
 
 
 </resources>
