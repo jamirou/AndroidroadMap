@@ -3,7 +3,7 @@
 
     <style name="ToDoStyleTextView">
         <item name="textAllCaps">true</item>
-        <item name="android:textColor">@color/greenGray</item>
+        <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:layout_marginVertical">10dp</item>
         <item name="android:textSize">20sp</item>
     </style>
