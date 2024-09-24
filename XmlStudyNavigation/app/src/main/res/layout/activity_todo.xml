@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/todo_make_your_tasks_done"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorAccent"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
         android:layout_margin="30dp"
         android:contentDescription="@string/add_task_fav"
         android:src="@drawable/ic_add"
-        app:backgroundTint="@color/fav_button_color"
+        app:backgroundTint="?attr/colorButtonNormal"
         app:fabSize="normal"
-        app:tint="@color/black" />
+        android:textColor="?attr/colorAccent" />
 </FrameLayout>
