@@ -2,14 +2,22 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.XmlStudyNavigation" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/background</item>
+        <!--button color-->
+        <item name="colorButtonNormal">@color/normal_color</item>
+        <!--Text color-->
+        <item name="colorAccent">@color/black</item>
     </style>
+
+
+
+
 
     <style name="Theme.XmlStudyNavigation" parent="Base.Theme.XmlStudyNavigation" />
 
     <style name="ToDoStyleTextView">
         <item name="textAllCaps">true</item>
-        <item name="android:textColor">@color/greenGray</item>
+        <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:layout_margin">15dp</item>
         <item name="android:textSize">20sp</item>
     </style>

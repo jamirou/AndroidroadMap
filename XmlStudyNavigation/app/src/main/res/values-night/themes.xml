@@ -2,6 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.XmlStudyNavigation" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/background_dark</item>
+        <!--button color-->
+        <item name="colorButtonNormal">@color/normal_color_dark</item>
+        <!--Text color-->
+        <item name="colorAccent">@color/white</item>
     </style>
 </resources>

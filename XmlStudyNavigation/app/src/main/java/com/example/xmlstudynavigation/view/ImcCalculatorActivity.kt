@@ -14,6 +14,7 @@ import com.example.xmlstudynavigation.Gender
 import com.example.xmlstudynavigation.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
+import kotlin.text.*
 
 class ImcCalculatorActivity : AppCompatActivity() {
 
@@ -56,7 +57,6 @@ class ImcCalculatorActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        setGenderColor()
         setWeight()
         setAge()
     }
@@ -104,7 +104,6 @@ class ImcCalculatorActivity : AppCompatActivity() {
         val heightInMeters = currentHeight / 100.0
         val imc = currentWeight / (heightInMeters * heightInMeters)
         return String.format("%.2f", imc)
-//        Log.i("IMC", "El IMC es $imcFormatted")
     }
 
     private fun setWeight() {
@@ -135,21 +134,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun changeGender(gender: Gender) {
         selectedGender = gender
-        setGenderColor()
     }
 
-    private fun setGenderColor() {
-        cardMale.setCardBackgroundColor(setBackgroundColor(selectedGender == Gender.MALE))
-        cardFemale.setCardBackgroundColor(setBackgroundColor(selectedGender == Gender.FEMALE))
-    }
-
-    private fun setBackgroundColor(isSelectedComponent: Boolean): Int {
-        val currentCardColor = if (isSelectedComponent) {
-            R.color.pressed_color
-        } else {
-            R.color.normal_color
-        }
-        return ContextCompat.getColor(this, currentCardColor)
-    }
 
 }
