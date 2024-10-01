@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.middlexmlhoroscopo.databinding.FragmentHoroscopoBinding
 import com.example.middlexmlhoroscopo.domain.model.HoroscopoInfo
@@ -40,7 +41,7 @@ class HoroscopoFragment : Fragment() {
         horoscopoAdapter = HoroscopoAdapter()
 
         binding.RecyclerViewHoroscopo.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = GridLayoutManager(context, 2)
             adapter = horoscopoAdapter
         }
     }
