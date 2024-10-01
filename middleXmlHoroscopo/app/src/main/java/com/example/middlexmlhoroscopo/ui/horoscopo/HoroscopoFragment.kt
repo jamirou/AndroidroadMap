@@ -1,7 +1,6 @@
 package com.example.middlexmlhoroscopo.ui.horoscopo
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.middlexmlhoroscopo.databinding.FragmentHoroscopoBinding
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoInfo
+import com.example.middlexmlhoroscopo.ui.horoscopo.adapter.HoroscopoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -18,6 +20,7 @@ import kotlinx.coroutines.launch
 class HoroscopoFragment : Fragment() {
 
     private val horoscopoViewModel by viewModels<HoroscopoViewModel>()
+    private lateinit var horoscopoAdapter: HoroscopoAdapter
 
     private var _binding: FragmentHoroscopoBinding? = null
     private val binding get() = _binding!!
@@ -29,14 +32,24 @@ class HoroscopoFragment : Fragment() {
     }
 
     private fun initUI() {
+        initList()
         initUiState()
+    }
+
+    private fun initList() {
+        horoscopoAdapter = HoroscopoAdapter()
+
+        binding.RecyclerViewHoroscopo.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = horoscopoAdapter
+        }
     }
 
     private fun initUiState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 horoscopoViewModel.horoscopo.collect {
-                    Log.i("Horoscopo", "initUI: $it")
+                    horoscopoAdapter.updateList(it)
                 }
             }
         }
