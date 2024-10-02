@@ -7,7 +7,8 @@ import com.example.middlexmlhoroscopo.R
 import com.example.middlexmlhoroscopo.domain.model.HoroscopoInfo
 
 class HoroscopoAdapter(
-    private var horoscopoList: List<HoroscopoInfo> = emptyList()
+    private var horoscopoList: List<HoroscopoInfo> = emptyList(),
+    private val onItemSelected:(HoroscopoInfo) -> Unit
 ) : RecyclerView.Adapter<HoroscopoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopoViewHolder {
         return HoroscopoViewHolder(
@@ -23,7 +24,7 @@ class HoroscopoAdapter(
     override fun getItemCount() = horoscopoList.size
 
     override fun onBindViewHolder(holder: HoroscopoViewHolder, position: Int) {
-        holder.render(horoscopoList[position])
+        holder.render(horoscopoList[position], onItemSelected)
     }
 
 }
