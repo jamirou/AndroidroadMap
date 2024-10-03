@@ -7,10 +7,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.navArgs
 import com.example.middlexmlhoroscopo.R
 import com.example.middlexmlhoroscopo.databinding.ActivityHoroscopoDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HoroscopoDetailActivity : AppCompatActivity() {
@@ -31,6 +37,36 @@ class HoroscopoDetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        arg.type
+        initUi()
+    }
+
+    private fun initUi() {
+        initUiState()
+    }
+
+    private fun initUiState() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                horoscopoDetailViewModel.state.collect {
+                    when (it) {
+                        HoroscopoDetailState.Loading -> loadingState()
+                        is HoroscopoDetailState.Error -> errorState()
+                        is HoroscopoDetailState.Success -> successState()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun successState() {
+
+    }
+
+    private fun errorState() {
+
+    }
+
+    private fun loadingState() {
+
     }
 }
