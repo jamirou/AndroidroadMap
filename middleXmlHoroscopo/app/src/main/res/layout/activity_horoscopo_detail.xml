@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:src="@drawable/ic_back"
-        android:tint="@color/gold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/gold" />
 
     <TextView
         android:id="@+id/TextViewDetail"
@@ -53,6 +53,7 @@
         tools:text="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
 
     <ProgressBar
+        android:id="@+id/ProgressbarDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/gold"
