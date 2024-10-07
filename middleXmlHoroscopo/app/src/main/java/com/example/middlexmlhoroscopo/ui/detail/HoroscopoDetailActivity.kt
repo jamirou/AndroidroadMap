@@ -2,7 +2,6 @@
 package com.example.middlexmlhoroscopo.ui.detail
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.navArgs
@@ -38,6 +36,7 @@ class HoroscopoDetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        horoscopoDetailViewModel.getHoroscopo(arg.type.name)
         initUi()
     }
 
@@ -52,23 +51,25 @@ class HoroscopoDetailActivity : AppCompatActivity() {
                     when (it) {
                         HoroscopoDetailState.Loading -> loadingState()
                         is HoroscopoDetailState.Error -> errorState()
-                        is HoroscopoDetailState.Success -> successState()
+                        is HoroscopoDetailState.Success -> successState(it )
                     }
                 }
             }
         }
     }
 
-    private fun successState() {
+    private fun loadingState() {
+        binding.ProgressbarDetail.isVisible = true
 
     }
 
     private fun errorState() {
-
-
+        binding.ProgressbarDetail.isVisible = false
     }
 
-    private fun loadingState() {
-
+    private fun successState(state: HoroscopoDetailState.Success) {
+        binding.ProgressbarDetail.isVisible = true
+        binding.TextViewDetail.text = state.sign
+        binding.TextViewDetailBody.text = state.prediction
     }
 }
