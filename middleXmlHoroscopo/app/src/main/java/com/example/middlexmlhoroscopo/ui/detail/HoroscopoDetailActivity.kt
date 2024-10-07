@@ -2,6 +2,7 @@
 package com.example.middlexmlhoroscopo.ui.detail
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -63,6 +64,7 @@ class HoroscopoDetailActivity : AppCompatActivity() {
     }
 
     private fun errorState() {
+
 
     }
 
