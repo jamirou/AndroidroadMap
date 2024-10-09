@@ -1,4 +1,3 @@
-
 package com.example.middlexmlhoroscopo.ui.detail
 
 import android.os.Bundle
@@ -22,7 +21,7 @@ class HoroscopoDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHoroscopoDetailBinding
     private val horoscopoDetailViewModel: HoroscopoDetailViewModel by viewModels()
-    private val arg:HoroscopoDetailActivityArgs by navArgs()
+    private val arg: HoroscopoDetailActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,12 @@ class HoroscopoDetailActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
+        initListeners()
         initUiState()
+    }
+
+    private fun initListeners() {
+        binding.ImageViewBack.setOnClickListener { onBackPressed() }
     }
 
     private fun initUiState() {
@@ -51,7 +55,7 @@ class HoroscopoDetailActivity : AppCompatActivity() {
                     when (it) {
                         HoroscopoDetailState.Loading -> loadingState()
                         is HoroscopoDetailState.Error -> errorState()
-                        is HoroscopoDetailState.Success -> successState(it )
+                        is HoroscopoDetailState.Success -> successState(it)
                     }
                 }
             }
