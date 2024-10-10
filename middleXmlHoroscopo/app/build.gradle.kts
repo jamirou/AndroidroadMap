@@ -55,6 +55,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    /*Interceptor*/
+    implementation(libs.logging.interceptor)
+
 
 
     implementation(libs.androidx.core.ktx)
