@@ -2,6 +2,7 @@ package com.example.middlexmlhoroscopo.ui.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel
 import com.example.middlexmlhoroscopo.domain.usecase.GetPredictionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -17,12 +18,15 @@ class HoroscopoDetailViewModel @Inject constructor(private val getPredictionUseC
     private var _state = MutableStateFlow<HoroscopoDetailState>(HoroscopoDetailState.Loading)
     val state: StateFlow<HoroscopoDetailState> = _state
 
-    fun getHoroscopo(sign: String) {
+    lateinit var horoscopo: HoroscopoModel
+
+    fun getHoroscopo(sign: HoroscopoModel) {
+        horoscopo = sign
         viewModelScope.launch() {
             _state.value = HoroscopoDetailState.Loading
-            val result = withContext(Dispatchers.IO) { getPredictionUseCase(sign) }
+            val result = withContext(Dispatchers.IO) { getPredictionUseCase(sign.name) }
             if (result!= null) {
-                _state.value = HoroscopoDetailState.Success(result.horoscopo, result.sign)
+                _state.value = HoroscopoDetailState.Success(result.horoscopo, result.sign, horoscopo)
             } else {
                 _state.value = HoroscopoDetailState.Error("Something went wrong")
             }

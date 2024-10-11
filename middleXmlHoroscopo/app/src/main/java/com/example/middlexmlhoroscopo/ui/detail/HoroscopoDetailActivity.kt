@@ -13,6 +13,18 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.navArgs
 import com.example.middlexmlhoroscopo.R
 import com.example.middlexmlhoroscopo.databinding.ActivityHoroscopoDetailBinding
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Aquarius
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Aries
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Cancer
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Capricorn
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Geminis
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Leo
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Libra
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Pisces
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Sagittarius
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Scorpio
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Taurus
+import com.example.middlexmlhoroscopo.domain.model.HoroscopoModel.Virgo
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,7 +47,7 @@ class HoroscopoDetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        horoscopoDetailViewModel.getHoroscopo(arg.type.name)
+        horoscopoDetailViewModel.getHoroscopo(arg.type)
         initUi()
     }
 
@@ -75,5 +87,21 @@ class HoroscopoDetailActivity : AppCompatActivity() {
         binding.ProgressbarDetail.isVisible = true
         binding.TextViewDetail.text = state.sign
         binding.TextViewDetailBody.text = state.prediction
+
+        val images = when (state.horoscopoModel) {
+            Aries -> R.drawable.detail_aries
+            Taurus -> R.drawable.detail_taurus
+            Geminis -> R.drawable.detail_gemini
+            Cancer -> R.drawable.detail_cancer
+            Leo -> R.drawable.detail_leo
+            Virgo -> R.drawable.detail_virgo
+            Libra -> R.drawable.detail_libra
+            Scorpio -> R.drawable.detail_scorpio
+            Sagittarius -> R.drawable.detail_sagittarius
+            Capricorn -> R.drawable.detail_capricorn
+            Aquarius -> R.drawable.detail_aquarius
+            Pisces -> R.drawable.detail_pisces
+        }
+        binding.ImageViewDetail.setImageResource(images)
     }
 }

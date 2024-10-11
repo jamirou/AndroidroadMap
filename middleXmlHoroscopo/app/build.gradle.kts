@@ -21,12 +21,20 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            resValue("string", "AppName", "Horoscopo")
+            buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
+        }
+        getByName("debug") {
+            isDebuggable = true
+            resValue("string", "AppName", "[DEBUG]Horoscopo")
+            buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
         }
     }
     compileOptions {
@@ -38,6 +46,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -54,6 +63,9 @@ dependencies {
     /*dagger hilt*/
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    /*Interceptor*/
+    implementation(libs.logging.interceptor)
 
 
 
