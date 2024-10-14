@@ -7,31 +7,91 @@
     android:background="@color/primary"
     tools:context=".ui.luck.LuckFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <ImageView
-        android:id="@+id/ImageViewRoulette"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintPreview"
         android:layout_width="0dp"
-        android:layout_height="400dp"
-        android:layout_marginBottom="-250dp"
-        android:contentDescription="@string/deck_of_cards_string"
-        android:src="@drawable/ruleta"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:layout_width="60dp"
-        android:id="@+id/ImageViewReverse"
-        android:contentDescription="@string/new_card_string"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitStart"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/card_back_small"
-        android:layout_height="wrap_content" />
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ImageViewRoulette"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginBottom="-250dp"
+            android:contentDescription="@string/deck_of_cards_string"
+            android:src="@drawable/ruleta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ImageViewReverse"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/new_card_string"
+            android:scaleType="fitStart"
+            android:src="@drawable/card_back_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintPrediction"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ImageViewLuckyCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/lucky_card_string_resource"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/secondary" />
+
+        <TextView
+            android:id="@+id/TextViewLucky"
+            style="@style/BodyStyledApp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="32dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/TextViewShare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ImageViewLuckyCard"
+            tools:text="This is a prediction" />
+
+        <TextView
+            android:id="@+id/TextViewShare"
+            style="@style/BodyStyledApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/share_string_source"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextViewLucky" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
