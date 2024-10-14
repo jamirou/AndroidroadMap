@@ -9,7 +9,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewHoroscopo"
         android:layout_width="match_parent"
-        android:layout_marginBottom="120dp"
         android:layout_height="match_parent" />
 
 </FrameLayout>
