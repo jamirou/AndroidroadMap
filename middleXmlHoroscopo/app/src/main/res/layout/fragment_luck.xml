@@ -13,11 +13,24 @@
         android:id="@+id/ImageViewRoulette"
         android:layout_width="0dp"
         android:layout_height="400dp"
+        android:layout_marginBottom="-250dp"
+        android:contentDescription="@string/deck_of_cards_string"
+        android:src="@drawable/ruleta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ruleta"
-        android:layout_marginBottom="-250dp"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:id="@+id/ImageViewReverse"
+        android:contentDescription="@string/new_card_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/card_back_small"
+        android:layout_height="wrap_content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
