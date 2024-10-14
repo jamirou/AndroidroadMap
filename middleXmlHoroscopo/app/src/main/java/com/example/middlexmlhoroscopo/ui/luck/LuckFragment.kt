@@ -55,12 +55,28 @@ class LuckFragment : Fragment() {
                 binding.ImageViewReverse.isVisible = true
             }
 
-            override fun onAnimationEnd(p0: Animation?) {}
+            override fun onAnimationEnd(p0: Animation?) {
+                growCard()
+            }
 
             override fun onAnimationRepeat(p0: Animation?) {}
 
         })
         binding.ImageViewReverse.startAnimation(slideUpAnimation)
+    }
+
+    private fun growCard() {
+        val growAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.grow_up)
+        growAnimation.setAnimationListener(object: Animation.AnimationListener {
+            override fun onAnimationStart(p0: Animation?) {}
+
+            override fun onAnimationEnd(p0: Animation?) {
+
+            }
+
+            override fun onAnimationRepeat(p0: Animation?) {}
+        })
+        binding.ImageViewReverse.startAnimation(growAnimation)
     }
 
     override fun onCreateView(
