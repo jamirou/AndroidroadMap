@@ -1,6 +1,7 @@
 package com.example.middlexmlhoroscopo.ui.luck
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import androidx.core.view.isVisible
 import com.example.middlexmlhoroscopo.R
 import com.example.middlexmlhoroscopo.databinding.ActivityMainBinding
 import com.example.middlexmlhoroscopo.databinding.FragmentLuckBinding
+import com.example.middlexmlhoroscopo.ui.core.listeners.OnSwipeTouchListener
 import com.example.middlexmlhoroscopo.ui.providers.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Random
@@ -61,8 +63,16 @@ class LuckFragment : Fragment() {
         startActivity(shareIntent)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
-        binding.ImageViewRoulette.setOnClickListener { spinRoulette() }
+        binding.ImageViewRoulette.setOnTouchListener(object : OnSwipeTouchListener(requireContext()){
+            override fun onSwipeRight() {
+                spinRoulette()
+            }
+            override fun onSwipeLeft() {
+                spinRoulette()
+            }
+        })
     }
 
     private fun spinRoulette() {
