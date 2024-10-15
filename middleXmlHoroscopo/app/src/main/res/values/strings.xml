@@ -59,5 +59,7 @@
     <string name="imagedetailString">ImageDetail</string>
     <string name="deck_of_cards_string">Deck of cards</string>
     <string name="new_card_string">Special magic card</string>
+    <string name="share_string_source">Share</string>
+    <string name="lucky_card_string_resource">Lucky card</string>
 
 </resources>
