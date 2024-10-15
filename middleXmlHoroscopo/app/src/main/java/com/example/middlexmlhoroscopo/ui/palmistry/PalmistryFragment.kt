@@ -2,14 +2,18 @@ package com.example.middlexmlhoroscopo.ui.palmistry
 
 import android.Manifest
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
-import com.example.middlexmlhoroscopo.R
+import androidx.fragment.app.Fragment
 import com.example.middlexmlhoroscopo.databinding.FragmentPalmistryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +30,7 @@ class PalmistryFragment : Fragment() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) {
-            // Precise location access granted.
+            startCameraScan()
         } else {
             Toast.makeText(requireContext(), "Accept permissions", Toast.LENGTH_SHORT).show()
         }
@@ -35,10 +39,30 @@ class PalmistryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (checkCameraPermissions()) {
-
+            startCameraScan()
         } else {
             requestPermissionLauncher.launch(CAMERA_PERMISSION)
         }
+    }
+
+    private fun startCameraScan() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        cameraProviderFuture.addListener({
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            val preview = Preview.Builder()
+                .build()
+                .also {
+                    it.setSurfaceProvider(binding.PreviewViewFingerPrint.surfaceProvider)
+                }
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview)
+            } catch (e: Exception) {
+                Log.e("CameraPreview", "Error starting camera preview: ${e.message}")
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
     }
 
     private fun checkCameraPermissions(): Boolean {
