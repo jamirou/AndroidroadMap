@@ -61,5 +61,6 @@
     <string name="new_card_string">Special magic card</string>
     <string name="share_string_source">Share</string>
     <string name="lucky_card_string_resource">Lucky card</string>
+    <string name="finger_print_image_string">FinderPrintImageScan</string>
 
 </resources>
