@@ -1,6 +1,7 @@
 package com.example.middlexmlhoroscopo.ui.luck
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,8 +16,10 @@ import androidx.core.view.isVisible
 import com.example.middlexmlhoroscopo.R
 import com.example.middlexmlhoroscopo.databinding.ActivityMainBinding
 import com.example.middlexmlhoroscopo.databinding.FragmentLuckBinding
+import com.example.middlexmlhoroscopo.ui.providers.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Random
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LuckFragment : Fragment() {
@@ -24,13 +27,38 @@ class LuckFragment : Fragment() {
     private var _binding: FragmentLuckBinding? = null
     private val binding get() = _binding!!
 
+    @Inject
+    lateinit var randomCardProvider: RandomCardProvider
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
     }
 
     private fun initUi() {
+        preparePrediction()
         initListeners()
+    }
+
+    private fun preparePrediction() {
+        val currentLuck = randomCardProvider.getLucky()
+        currentLuck?.let { luck ->
+            val currentPrediction = getString(luck.text)
+            binding.TextViewLucky.text = currentPrediction
+            binding.ImageViewLuckyCard.setImageResource(luck.image)
+            binding.TextViewShare.setOnClickListener { sharePrediction(currentPrediction) }
+        }
+    }
+
+    private fun sharePrediction(prediction: String) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.ACTION_SEND, prediction)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     private fun initListeners() {
