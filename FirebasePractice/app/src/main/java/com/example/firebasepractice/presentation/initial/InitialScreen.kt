@@ -38,7 +38,7 @@ import com.example.firebasepractice.ui.theme.ShapeButton
 
 @Preview
 @Composable
-fun InitialScreen() {
+fun InitialScreen(navigateToLogin: () -> Unit = {}, navigateToSignUp: () -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -71,7 +71,7 @@ fun InitialScreen() {
         )
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = {}, modifier = Modifier
+            onClick = {navigateToSignUp()}, modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
                 .padding(horizontal = 32.dp),
@@ -94,7 +94,9 @@ fun InitialScreen() {
         Text(
             "Login",
             color = Color.White,
-            modifier = Modifier.padding(36.dp),
+            modifier = Modifier
+                .padding(36.dp)
+                .clickable { navigateToLogin() },
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.weight(1f))
