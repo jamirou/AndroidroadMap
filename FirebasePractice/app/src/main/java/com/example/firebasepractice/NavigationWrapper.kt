@@ -12,12 +12,15 @@ import com.example.firebasepractice.presentation.signup.SignUpScreen
 fun NavigationWrapper(navHostController: NavHostController) {
     NavHost(navController = navHostController, startDestination = "initial") {
         composable("initial") {
-            InitialScreen()
+            InitialScreen(
+                navigateToLogin = { navHostController.navigate("login") },
+                navigateToSignUp = { navHostController.navigate("signup") }
+            )
         }
         composable("login") {
             LoginScreen()
         }
-        composable("signUp") {
+        composable("signup") {
             SignUpScreen()
         }
     }
