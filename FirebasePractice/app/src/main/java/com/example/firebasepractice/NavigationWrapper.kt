@@ -7,9 +7,10 @@ import androidx.navigation.compose.composable
 import com.example.firebasepractice.presentation.initial.InitialScreen
 import com.example.firebasepractice.presentation.login.LoginScreen
 import com.example.firebasepractice.presentation.signup.SignUpScreen
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun NavigationWrapper(navHostController: NavHostController) {
+fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) {
     NavHost(navController = navHostController, startDestination = "initial") {
         composable("initial") {
             InitialScreen(
@@ -18,10 +19,10 @@ fun NavigationWrapper(navHostController: NavHostController) {
             )
         }
         composable("login") {
-            LoginScreen()
+            LoginScreen(auth)
         }
         composable("signup") {
-            SignUpScreen()
+            SignUpScreen(auth)
         }
     }
 }
