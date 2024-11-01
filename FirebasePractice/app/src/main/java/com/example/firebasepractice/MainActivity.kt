@@ -40,6 +40,7 @@ class MainActivity : ComponentActivity() {
         if (currentUser != null) {
             /*navigate to home screen*/
             Log.i("Jamiron", "Estoy logueado")
+            auth.signOut()
         }
     }
 }
