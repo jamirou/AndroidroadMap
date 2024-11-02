@@ -53,6 +53,7 @@ android {
 
 dependencies {
 
+    implementation(libs.coil)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
     implementation(libs.androidx.navigation.compose)
