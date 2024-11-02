@@ -1,5 +1,6 @@
 package com.example.firebasepractice.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.firebasepractice.presentation.model.Artist
@@ -18,7 +19,18 @@ class HomeViewModel : ViewModel() {
     val artists: StateFlow<List<Artist>> = _artists
 
     init {
+        /*repeat(20) {
+        loadData()
+        }*/
         getArtists()
+    }
+
+    private fun loadData() {
+        val random = (1..10000).random()
+        val artist = Artist(name = "Artist $random", description = "Description $random", image = "https://picsum.photos/200")
+        db.collection("artists")
+            .add(artist)
+
     }
 
     private fun getArtists() {
