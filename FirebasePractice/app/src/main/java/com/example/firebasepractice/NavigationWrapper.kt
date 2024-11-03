@@ -9,11 +9,10 @@ import com.example.firebasepractice.presentation.initial.InitialScreen
 import com.example.firebasepractice.presentation.login.LoginScreen
 import com.example.firebasepractice.presentation.signup.SignUpScreen
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 @Composable
-fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth, db: FirebaseFirestore) {
-    NavHost(navController = navHostController, startDestination = "initial") {
+fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) {
+    NavHost(navController = navHostController, startDestination = "home") {
         composable("initial") {
             InitialScreen(
                 navigateToLogin = { navHostController.navigate("login") },
@@ -27,7 +26,7 @@ fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth, 
             SignUpScreen(auth)
         }
         composable("home") {
-            HomeScreen(db)
+            HomeScreen()
         }
     }
 }

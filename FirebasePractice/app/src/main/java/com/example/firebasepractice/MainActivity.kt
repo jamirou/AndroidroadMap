@@ -21,18 +21,16 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var navHostController: NavHostController
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        db = com.google.firebase.ktx.Firebase.firestore
         enableEdgeToEdge()
         setContent {
             navHostController = rememberNavController()
             FirebasePracticeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NavigationWrapper(navHostController, auth, db)
+                    NavigationWrapper(navHostController, auth)
                 }
             }
         }
