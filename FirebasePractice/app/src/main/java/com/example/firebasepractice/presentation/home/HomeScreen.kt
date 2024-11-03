@@ -1,5 +1,6 @@
 package com.example.firebasepractice.presentation.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,12 +23,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.firebasepractice.R
 import com.example.firebasepractice.presentation.model.Artist
+import com.example.firebasepractice.presentation.model.Player
 import com.example.firebasepractice.ui.theme.Black
 import com.example.firebasepractice.ui.theme.Purple80
 
@@ -58,24 +62,40 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
             }
         }
         Spacer(modifier = Modifier.weight(1f))
-        if (player != null) {
-            val color = if (player?.play == true) Color.Green else Color.Red
-            Row(
-                modifier = Modifier
-                    .height(50.dp)
-                    .fillMaxWidth()
-                    .background(Purple80), verticalAlignment = Alignment.CenterVertically
-            )
-            {
-                Text(text = player?.artist?.name.orEmpty())
-                Spacer(modifier = Modifier.weight(1f))
-                Box(
-                    Modifier
-                        .size(20.dp)
-                        .background(color).clickable { viewModel.onPlaySelected() }
-                )
-            }
+        player?.let {
+            PlayerComponent(it)
         }
+
+    }
+}
+
+@Composable
+fun PlayerComponent(player: Player) {
+    val icon = if (player.play == true) R.drawable.ic_pause else R.drawable.ic_play
+    Row(
+        modifier = Modifier
+            .height(50.dp)
+            .fillMaxWidth()
+            .background(Purple80), verticalAlignment = Alignment.CenterVertically
+    )
+    {
+        Text(
+            text = player.artist?.name.orEmpty(),
+            modifier = Modifier.padding(horizontal = 12.dp),
+            color = Color.White
+        )
+        Spacer(modifier = Modifier.weight(1f))
+        Image(
+            painter = painterResource(icon),
+            contentDescription = "play/pause",
+            modifier = Modifier.size(40.dp)
+        )
+        Image(
+            painter = painterResource(R.drawable.ic_clear),
+            contentDescription = "Close",
+            modifier = Modifier.size(40.dp)
+        )
+
     }
 }
 
