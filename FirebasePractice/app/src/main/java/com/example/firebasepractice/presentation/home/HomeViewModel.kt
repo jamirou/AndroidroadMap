@@ -115,4 +115,9 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    fun onCancelSelected() {
+        val ref = realtimeDatabase.reference.child("player")
+        ref.setValue(null)
+    }
+
 }

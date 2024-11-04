@@ -3,7 +3,6 @@ package com.example.firebasepractice.presentation.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -63,38 +62,42 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
         }
         Spacer(modifier = Modifier.weight(1f))
         player?.let {
-            PlayerComponent(it)
+            PlayerComponent(player = it, onPlaySelected = {viewModel.onPlaySelected()}, onCancelSelected = {viewModel.onCancelSelected()})
         }
 
     }
 }
 
 @Composable
-fun PlayerComponent(player: Player) {
+fun PlayerComponent(
+    player: Player,
+    onPlaySelected: () -> Unit,
+    onCancelSelected: () -> Unit,
+) {
     val icon = if (player.play == true) R.drawable.ic_pause else R.drawable.ic_play
     Row(
         modifier = Modifier
             .height(50.dp)
             .fillMaxWidth()
-            .background(Purple80), verticalAlignment = Alignment.CenterVertically
-    )
-    {
+            .background(Purple80),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Text(
             text = player.artist?.name.orEmpty(),
             modifier = Modifier.padding(horizontal = 12.dp),
             color = Color.White
         )
         Spacer(modifier = Modifier.weight(1f))
-        Image(
-            painter = painterResource(icon),
+        Image(painter = painterResource(icon),
             contentDescription = "play/pause",
-            modifier = Modifier.size(40.dp)
-        )
-        Image(
-            painter = painterResource(R.drawable.ic_clear),
+            modifier = Modifier
+                .size(40.dp)
+                .clickable { onPlaySelected() })
+        Image(painter = painterResource(R.drawable.ic_clear),
             contentDescription = "Close",
-            modifier = Modifier.size(40.dp)
-        )
+            modifier = Modifier
+                .size(40.dp)
+                .clickable { onCancelSelected() })
 
     }
 }
