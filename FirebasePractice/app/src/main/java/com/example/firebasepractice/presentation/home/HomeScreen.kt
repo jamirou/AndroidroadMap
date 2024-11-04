@@ -1,5 +1,8 @@
 package com.example.firebasepractice.presentation.home
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,6 +17,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -22,11 +28,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import coil.compose.AsyncImage
 import com.example.firebasepractice.R
 import com.example.firebasepractice.presentation.model.Artist
@@ -41,6 +50,43 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
 
     val artists = viewModel.artists.collectAsState()
     val player by viewModel.player.collectAsState()
+    val blockVersion by viewModel.blockVersion.collectAsState()
+
+    if (blockVersion) {
+        val context = LocalContext.current
+        Dialog(
+            onDismissRequest = {},
+            properties = DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false)
+        ) {
+            Card(colors = CardDefaults.cardColors(containerColor = Color.White)) {
+                Column(
+                    modifier = Modifier
+                        .padding(24.dp)
+                        .fillMaxWidth()
+                        .height(300.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        "Update",
+                        fontSize = 22.sp,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        "Access to full content by clicking 'continue' button",
+                        fontSize = 16.sp,
+                        color = Color.Gray
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Button(onClick = { navigateToPlayStore(context) }) {
+                        Text("¡Update!")
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+            }
+        }
+    }
 
     Column(
         Modifier
@@ -52,12 +98,12 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = 30.sp,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(20.dp)
         )
 
         LazyRow {
             items(artists.value) {
-                ArtistItem(artis = it, onItemSelected = {viewModel.addPlayer(it)})
+                ArtistItem(artis = it, onItemSelected = { viewModel.addPlayer(it) })
             }
         }
         Spacer(modifier = Modifier.weight(1f))
@@ -114,7 +160,7 @@ fun ArtistItem(artis: Artist, onItemSelected: (Artist) -> Unit) {
             model = artis.image,
             contentDescription = "Artist image",
             modifier = Modifier
-                .size(70.dp)
+                .size(50.dp)
                 .clip(CircleShape)
         )
         Spacer(modifier = Modifier.height(4.dp))
@@ -135,8 +181,25 @@ fun PreviewArtistItem() {
 }
 
 
+fun navigateToPlayStore(context: Context) {
+    val appPackage = context.packageName
+    try {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=$appPackage")
+            )
+        )
+    } catch (e: Exception) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=$appPackage")
+            )
+        )
+    }
 
-
+}
 
 
 
