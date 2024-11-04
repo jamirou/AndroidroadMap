@@ -1,5 +1,8 @@
 package com.example.firebasepractice.presentation.home
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,6 +53,7 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
     val blockVersion by viewModel.blockVersion.collectAsState()
 
     if (blockVersion) {
+        val context = LocalContext.current
         Dialog(
             onDismissRequest = {},
             properties = DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false)
@@ -74,7 +79,7 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
                         color = Color.Gray
                     )
                     Spacer(modifier = Modifier.weight(1f))
-                    Button(onClick = {/*todo*/ }) {
+                    Button(onClick = { navigateToPlayStore(context) }) {
                         Text("¡Update!")
                     }
                     Spacer(modifier = Modifier.height(8.dp))
@@ -176,8 +181,25 @@ fun PreviewArtistItem() {
 }
 
 
+fun navigateToPlayStore(context: Context) {
+    val appPackage = context.packageName
+    try {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=$appPackage")
+            )
+        )
+    } catch (e: Exception) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=$appPackage")
+            )
+        )
+    }
 
-
+}
 
 
 
