@@ -53,6 +53,7 @@ android {
 
 dependencies {
 
+    implementation(libs.firebase.realtime)
     implementation(libs.coil)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
