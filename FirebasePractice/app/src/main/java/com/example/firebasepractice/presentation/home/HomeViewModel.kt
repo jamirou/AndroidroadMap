@@ -120,4 +120,10 @@ class HomeViewModel : ViewModel() {
         ref.setValue(null)
     }
 
+    fun addPlayer(artist: Artist) {
+        val ref = realtimeDatabase.reference.child("player")
+        val player = Player(artist = artist, play = true)
+        ref.setValue(player)
+    }
+
 }

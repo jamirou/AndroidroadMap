@@ -57,12 +57,15 @@ fun HomeScreen(viewModel: HomeViewModel = HomeViewModel()) {
 
         LazyRow {
             items(artists.value) {
-                ArtistItem(it)
+                ArtistItem(artis = it, onItemSelected = {viewModel.addPlayer(it)})
             }
         }
         Spacer(modifier = Modifier.weight(1f))
         player?.let {
-            PlayerComponent(player = it, onPlaySelected = {viewModel.onPlaySelected()}, onCancelSelected = {viewModel.onCancelSelected()})
+            PlayerComponent(
+                player = it,
+                onPlaySelected = { viewModel.onPlaySelected() },
+                onCancelSelected = { viewModel.onCancelSelected() })
         }
 
     }
@@ -103,8 +106,10 @@ fun PlayerComponent(
 }
 
 @Composable
-fun ArtistItem(artis: Artist) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+fun ArtistItem(artis: Artist, onItemSelected: (Artist) -> Unit) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.clickable { onItemSelected(artis) }) {
         AsyncImage(
             model = artis.image,
             contentDescription = "Artist image",
@@ -126,7 +131,7 @@ fun PreviewArtistItem() {
         "https://laverdadnoticias.com/img/2020/02/09/2_viral_inapropiadas_fotos_de_un_gato_comiendo_plxtano_causas_furor_en_internet.jpg?__scale=c:transparent,w:480,h:480,t:3",
         /*emptyList()*/
     )
-    ArtistItem(artist)
+    ArtistItem(artist) {}
 }
 
 
